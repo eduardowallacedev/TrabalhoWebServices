@@ -45,7 +45,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void debitarAlunoContaInativa() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30", 1111L), 1.1);
 
 		Credito credito = new Credito(creditoDTO);
 		Mockito.when(alunoService.getById(Mockito.anyInt())).thenReturn(Optional.of(creditoDTO.getAluno()));
@@ -58,7 +58,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void debitar() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
@@ -75,7 +75,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void adicionar() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30", 1111L), 1.1);
 
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
@@ -92,11 +92,11 @@ public class CreditoServiceTest {
 
 	@Test
 	public void alunoInativo() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
-		AlunoDTO aluno = new AlunoDTO(122, "Pedor", 22222L);
+		AlunoDTO aluno = new AlunoDTO(122, "Pedor","262.523.620-50", 22222L);
 
 		Mockito.when(alunoService.getById(Mockito.anyInt())).thenReturn(Optional.of(aluno));
 		Mockito.when(creditoRepository.findSaldoById(Mockito.anyInt())).thenReturn(Optional.of(credito));
@@ -109,7 +109,7 @@ public class CreditoServiceTest {
 	public void alunoNaoEncontrado() throws Exception {
 
 		Mockito.when(alunoService.getById(Mockito.anyInt())).thenReturn(Optional.ofNullable(null));
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 
 		ResponseEntity res = service.adicionar(creditoDTO);
 
@@ -119,7 +119,7 @@ public class CreditoServiceTest {
 	@Test
 	public void saldoNaoEncontrado() throws Exception {
 
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30", 1111L), 1.1);
 
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
@@ -138,7 +138,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void ativarCartao() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30",1111L), 1.1);
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
 
@@ -152,7 +152,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void desativarCartao() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30" ,1111L), 1.1);
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
 
@@ -166,7 +166,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void getSaldoByCartao() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30" ,1111L), 1.1);
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
 		Mockito.when(creditoRepository.findSaldoByCartao(Mockito.anyLong())).thenReturn(Optional.of(credito));
@@ -192,7 +192,7 @@ public class CreditoServiceTest {
 
 	@Test
 	public void salvar() {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30" ,1111L), 1.1);
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);
 		Mockito.when(creditoRepository.save(Mockito.any(Credito.class))).thenReturn(credito);

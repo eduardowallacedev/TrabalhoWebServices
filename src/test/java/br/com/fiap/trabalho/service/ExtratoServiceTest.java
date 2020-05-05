@@ -36,7 +36,7 @@ public class ExtratoServiceTest {
 	
 	@Test
 	public void retirarExtrato() {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30",1111L), 1.1);
 
 		Credito credito = new Credito(creditoDTO);
 		credito.setAlunoCreditoAtivo(true);

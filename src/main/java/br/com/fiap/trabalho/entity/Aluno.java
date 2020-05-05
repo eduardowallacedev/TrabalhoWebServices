@@ -22,6 +22,9 @@ public class Aluno implements Serializable {
 
 	@Column(name="numeroCartao", nullable = false)
 	private Long numeroCartao;
+	
+	@Column(name="cpf", nullable = false)
+	private String cpf;
 
 	public Long getNumeroCartao() {
 		return numeroCartao;
@@ -45,7 +48,16 @@ public class Aluno implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public String getCpf() {
+		return cpf;
+	}
 
+	public void setCpf(String Cpf) {
+		this.cpf = Cpf;
+	}
+	
+	
 	public String getNome() {
 		return nome;
 	}

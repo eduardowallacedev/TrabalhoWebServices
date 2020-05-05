@@ -33,7 +33,7 @@ public class TransacoesControllerTest {
 	@Test
 	public void debitarCredito() throws Exception {
 		
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30" ,1111L), 1.1);
 		ResponseEntity resEntity = new ResponseEntity("Teste", HttpStatus.OK);
 		Mockito.when(credito.debitar(Mockito.any(CreditoDTO.class))).thenReturn(resEntity );
 		
@@ -44,7 +44,7 @@ public class TransacoesControllerTest {
 	
 	@Test
 	public void adicionarCredito() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 		ResponseEntity resEntity = new ResponseEntity("Teste", HttpStatus.OK);
 		Mockito.when(credito.adicionar(Mockito.any(CreditoDTO.class))).thenReturn(resEntity );
 		
@@ -55,7 +55,7 @@ public class TransacoesControllerTest {
 	
 	@Test
 	public void ativarCartao() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 		ResponseEntity resEntity = new ResponseEntity("Teste", HttpStatus.OK);
 		Mockito.when(credito.ativarCartao(Mockito.any(CreditoDTO.class))).thenReturn(resEntity );
 		
@@ -66,7 +66,7 @@ public class TransacoesControllerTest {
 	
 	@Test
 	public void desativarCartao() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 		ResponseEntity resEntity = new ResponseEntity("Teste", HttpStatus.OK);
 		Mockito.when(credito.desativarCartao(Mockito.any(CreditoDTO.class))).thenReturn(resEntity );
 		
@@ -77,7 +77,7 @@ public class TransacoesControllerTest {
 	
 	@Test
 	public void getSaldoById() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30",1111L), 1.1);
 		Mockito.when(credito.getSaldoById(Mockito.anyInt())).thenReturn(creditoDTO);
 		
 		ResponseEntity res = controller.getSaldoById(1);
@@ -87,7 +87,7 @@ public class TransacoesControllerTest {
 	
 	@Test
 	public void getSaldoByCartao() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30",1111L), 1.1);
 		Mockito.when(credito.getSaldoByCartao(Mockito.anyLong())).thenReturn(creditoDTO);
 		
 		ResponseEntity res = controller.getSaldoByCartao(1L);
@@ -97,7 +97,7 @@ public class TransacoesControllerTest {
 
 	@Test
 	public void testException() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30", 1111L), 1.1);
 		Mockito.when(credito.debitar(Mockito.any(CreditoDTO.class))).thenThrow(SemSaldoCadastrado.class);
 		Mockito.when(credito.adicionar(Mockito.any(CreditoDTO.class))).thenThrow(SemSaldoCadastrado.class);
 		Mockito.when(credito.ativarCartao(Mockito.any(CreditoDTO.class))).thenThrow(SemSaldoCadastrado.class);
@@ -127,7 +127,7 @@ public class TransacoesControllerTest {
 	
 	@Test
 	public void testException2() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao","984.264.620-30" ,1111L), 1.1);
 		Mockito.when(credito.debitar(Mockito.any(CreditoDTO.class))).thenThrow(Exception.class);
 		Mockito.when(credito.adicionar(Mockito.any(CreditoDTO.class))).thenThrow(Exception.class);
 		Mockito.when(credito.ativarCartao(Mockito.any(CreditoDTO.class))).thenThrow(Exception.class);

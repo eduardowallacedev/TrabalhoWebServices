@@ -40,7 +40,7 @@ public class AlunoServiceImpl implements AlunoService {
 	}
 	
 	private AlunoDTO createAlunoDTO(Aluno aluno) {
-		return new AlunoDTO(aluno.getId(), aluno.getNome(), aluno.getNumeroCartao());
+		return new AlunoDTO(aluno.getId(), aluno.getNome(), aluno.getCpf(), aluno.getNumeroCartao());
 	}
 
 	public String delete(Integer id) {
@@ -59,7 +59,7 @@ public class AlunoServiceImpl implements AlunoService {
 		List<Aluno> alunos = alunoRepository.findAll();
 
 		return alunos.stream().map((x) -> {
-			return new AlunoDTO(x.getId(), x.getNome(), x.getNumeroCartao());
+			return new AlunoDTO(x.getId(), x.getNome(), x.getCpf() ,x.getNumeroCartao());
 		}).collect(Collectors.toList());
 
 	}
@@ -67,14 +67,14 @@ public class AlunoServiceImpl implements AlunoService {
 	public Optional<AlunoDTO> getById(Integer id) {
 		Optional<Aluno> aluno = alunoRepository.findById(id);
 		Optional<AlunoDTO> alunoDTO = Optional
-				.of(new AlunoDTO(aluno.get().getId(), aluno.get().getNome(), aluno.get().getNumeroCartao()));
+				.of(new AlunoDTO(aluno.get().getId(), aluno.get().getNome(), aluno.get().getCpf(), aluno.get().getNumeroCartao()));
 		return alunoDTO;
 	}
 
 	public List<AlunoDTO> getByName(String nome) {
 
 		List<AlunoDTO> alunoDTO = alunoRepository.findByName(nome.toUpperCase()).stream().map((x) -> {
-			return new AlunoDTO(x.getId(), x.getNome(), x.getNumeroCartao());
+			return new AlunoDTO(x.getId(), x.getNome(), x.getCpf(), x.getNumeroCartao());
 		}).collect(Collectors.toList());
 
 		return alunoDTO;

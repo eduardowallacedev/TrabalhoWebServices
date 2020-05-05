@@ -4,10 +4,12 @@ public class AlunoDTO {
 	private String nome;
 	private Long numeroCartao;
 	private Integer id;
+	private String cpf;
 	
-	public AlunoDTO(Integer id, String nome, Long numeroCartao) {
+	public AlunoDTO(Integer id, String nome, String cpf ,Long numeroCartao) {
 		this.id = id;
 		this.nome = nome.toUpperCase();
+		this.cpf = cpf;
 		this.setNumeroCartao(numeroCartao);
 	}
 	
@@ -32,5 +34,13 @@ public class AlunoDTO {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 }

@@ -39,7 +39,7 @@ public class AlunoServiceTest {
 	
 	@Test
 	public void save() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30", 1111L), 1.1);
 		Aluno aluno = new Aluno("Joao", 1L);
 		aluno.setId(1);
 		
@@ -53,7 +53,7 @@ public class AlunoServiceTest {
 	
 	@Test
 	public void saveException() throws Exception {
-		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", 1111L), 1.1);
+		CreditoDTO creditoDTO = new CreditoDTO(new AlunoDTO(1, "Joao", "984.264.620-30", 1111L), 1.1);
 		Aluno aluno = new Aluno("Joao", 1L);
 		aluno.setId(1);
 		

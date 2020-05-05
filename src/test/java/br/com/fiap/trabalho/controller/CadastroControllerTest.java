@@ -37,10 +37,10 @@ public class CadastroControllerTest {
 	public void save() throws Exception {
 
 		CreditoDTO creditoDTO = new CreditoDTO();
-		creditoDTO.setAlunoDTO(new AlunoDTO(1, "Joao", 1111111L));
+		creditoDTO.setAlunoDTO(new AlunoDTO(1, "Joao", "984.264.620-30" ,1111111L));
 		creditoDTO.setSaldo(1.1);
 
-		Mockito.when(alunoService.save(Mockito.any(CreditoDTO.class))).thenReturn(new AlunoDTO(1, "Joao", 1111111L));
+		Mockito.when(alunoService.save(Mockito.any(CreditoDTO.class))).thenReturn(new AlunoDTO(1, "Joao", "984.264.620-30", 1111111L));
 
 		ResponseEntity res = controller.save(creditoDTO);
 
@@ -51,7 +51,7 @@ public class CadastroControllerTest {
 	public void saveException() throws Exception {
 
 		CreditoDTO creditoDTO = new CreditoDTO();
-		creditoDTO.setAlunoDTO(new AlunoDTO(1, "Joao", 1111111L));
+		creditoDTO.setAlunoDTO(new AlunoDTO(1, "Joao","984.264.620-30" , 1111111L));
 		creditoDTO.setSaldo(1.1);
 
 		Mockito.when(alunoService.save(Mockito.any(CreditoDTO.class))).thenThrow(NullPointerException.class);
@@ -64,7 +64,7 @@ public class CadastroControllerTest {
 	@Test
 	public void getAll() {
 		List<AlunoDTO> list = new ArrayList<AlunoDTO>();
-		list.add((new AlunoDTO(1, "Joao", 1111111L)));
+		list.add((new AlunoDTO(1, "Joao","984.264.620-30" , 1111111L)));
 		Mockito.when(alunoService.getAll()).thenReturn(list);
 
 		List<AlunoDTO> res = controller.getAll();
@@ -73,7 +73,7 @@ public class CadastroControllerTest {
 
 	@Test
 	public void getById() {
-		Optional<AlunoDTO> aluno = Optional.of(new AlunoDTO(1, "Joao", 1111111L));
+		Optional<AlunoDTO> aluno = Optional.of(new AlunoDTO(1, "Joao", "984.264.620-30", 1111111L));
 
 		Mockito.when(alunoService.getById(Mockito.anyInt())).thenReturn(aluno);
 
@@ -85,7 +85,7 @@ public class CadastroControllerTest {
 	@Test
 	public void getByName() {
 		List<AlunoDTO> list = new ArrayList<AlunoDTO>();
-		list.add((new AlunoDTO(1, "Joao", 1111111L)));
+		list.add((new AlunoDTO(1, "Joao","984.264.620-30" , 1111111L)));
 		Mockito.when(alunoService.getByName(Mockito.anyString())).thenReturn(list);
 
 		List<AlunoDTO> res = controller.getByName("Joao");
